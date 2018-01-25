@@ -1,0 +1,12 @@
+{
+	"1": {
+		"nombre": "lisa",
+		"apellido": "simpson",
+		"padre": "Homer"
+	},
+	"2": {
+		"nombre": "Bart",
+		"apellido": "simpson",
+		"padre": "Homer"
+	}
+}
