@@ -10,25 +10,22 @@ import com.simpsons.dto.Personaje;
 @Service
 public class Servicio {
 
-	public Personaje getSimpson(Personaje personaje) {
+	public Personaje getSimpson(String nombre) {
 
-		switch (personaje.getNombre()) {
+		Personaje personaje = null;
+		
+		switch (nombre) {
 		case "Bart":
-			personaje.setApellido("Simpson");
-			personaje.setNombre("Bart");
-			personaje.setPadre("Homer");
+			personaje = new Personaje(1, "Bart", "Simpsons", "Homer");
 			break;
 		case "Lisa":
-			personaje.setApellido("Simpson");
-			personaje.setNombre("Lisa");
-			personaje.setPadre("Homer");
+			personaje = new Personaje(2, "Lisa", "Simpsons", "Homer");
 			break;
 		case "Homer":
-			personaje.setApellido("Simpson");
-			personaje.setNombre("Homer");
-			personaje.setPadre("Abraham");
+			personaje = new Personaje(3, "Homer", "Simpsons", "Abraham");
 			break;
 		}
+		
 		return personaje;
 	}
 

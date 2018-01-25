@@ -28,47 +28,31 @@ public class SimpsonsController {
 	@GetMapping(path = "{nombre}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Personaje consultar(@PathVariable("nombre") String nombre) {
-
-		Personaje personaje = new Personaje();
-
-		personaje.setNombre(nombre);
-
-		servicio.getSimpson(personaje);
-
-		return personaje;
+		
+		return  servicio.getSimpson(nombre);
 	}
 
 	@GetMapping(path = "{nombre}/padre", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Personaje consultarPadre(@PathVariable("nombre") String nombre) {
 
-		Personaje personaje = new Personaje();
-
-		personaje.setNombre(nombre);
-
-		servicio.getSimpson(personaje);
-
-		personaje.setNombre(personaje.getPadre());
-
-		return personaje;
+		Personaje personaje = servicio.getSimpson(nombre);
+		
+		return servicio.getSimpson(personaje.getPadre());
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Personaje> consultarTodos() {
 
-		List<Personaje> listaTodos = servicio.consultarTodos();
-
-		return listaTodos;
+		return servicio.consultarTodos();
 	}
 
 	@GetMapping(params = "apellido", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Personaje> consultarApellidos(@RequestParam String apellido) {
 
-		List<Personaje> listaTodos = servicio.consultarApellido(apellido);
-
-		return listaTodos;
+		return servicio.consultarApellido(apellido);
 	}
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
