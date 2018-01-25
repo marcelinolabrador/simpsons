@@ -1,10 +1,15 @@
 package com.simpsons.dto;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Personaje {
 
+	public Personaje(){}
+	
+	public Personaje(int id, String nombre, String apellido, String padre) {
+		this.setId(id);
+		this.setNombre(nombre);
+		this.setApellido(apellido);
+		this.setPadre(padre);
+	}
 	
 	private int id;
 	
